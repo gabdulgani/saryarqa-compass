@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Saryarqa Compass</title>
+<meta name="description" content="Hiking trips in Kazakhstan for independent travellers from Germany: verified guides, an AI trip builder, look-around previews and arrival help.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Onest:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/pannellum.css">
+<link rel="stylesheet" href="css/site.css">
+<meta property="og:title" content="Saryarqa Compass">
+<meta property="og:description" content="Hiking trips in Kazakhstan with verified guides, an AI trip builder, look-around previews and arrival help. In English and German.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero.jpg">
+<meta name="theme-color" content="#0a1a20">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%230a1a20'/%3E%3Cpath d='M16 6.5l3.2 9.5h-6.4z' fill='%23e2a51a'/%3E%3Cpath d='M16 25.5l-3.2-9.5h6.4z' fill='%23eaf1ef'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><path d="M12 2.5l2.4 1.8 3-.2.9 2.9 2.4 1.8-1 2.8 1 2.8-2.4 1.8-.9 2.9-3-.2L12 21.5l-2.4-1.8-3 .2-.9-2.9-2.4-1.8 1-2.8-1-2.8 2.4-1.8.9-2.9 3 .2z" fill="currentColor"/><path d="M8.3 12.2l2.5 2.5 5-5" fill="none" stroke="#0e2127" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z" fill="currentColor"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M7 4.5h3.5v15H7zM13.5 4.5H17v15h-3.5z" fill="currentColor"/></symbol>
+    <symbol id="i-replay" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 9.5h19M6 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><path d="M9 6.5h11M9 12h11M9 17.5h11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M3.5 6.5l1.3 1.3 2.2-2.5M3.5 12l1.3 1.3 2.2-2.5M3.5 17.5l1.3 1.3 2.2-2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><circle cx="5" cy="18" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="19" cy="6" r="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M7 18h6a3 3 0 0 0 0-6h-2a3 3 0 0 1 0-6h6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-user-check" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 20c.8-3.6 3.6-5.5 7-5.5 1.4 0 2.6.3 3.7.9M15 18.5l2 2 4-4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5.5" rx="7.5" ry="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 5.5v13c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-13M4.5 12c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5.5h16v10H9.5L5 19.5v-4H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8 10.5h8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="4.5" y="10.5" width="15" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+    <symbol id="i-moonclock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-plane" viewBox="0 0 24 24"><path d="M10.5 13.5L3 11l1.2-1.6 7.6.8 4.6-5.4c.9-1 2.6-.9 2.9.3.2.6 0 1.2-.4 1.7l-4.8 5.6 1.4 7.7-1.6 1.1-3.4-6.6-3.3 3.4.3 2.4-1.2.9-1.6-3.6-3.6-1.6.9-1.2 2.4.3z" fill="currentColor"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M4 16.5V12l2-5h12l2 5v4.5M4 12h16M4 16.5h16v2H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="7.5" cy="14.3" r="1" fill="currentColor"/><circle cx="16.5" cy="14.3" r="1" fill="currentColor"/></symbol>
+    <symbol id="i-pass" viewBox="0 0 24 24"><rect x="5" y="2.5" width="14" height="19" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M8.5 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4.5h5.5V10M19.5 4.5L11 13M18 14v5.5H4.5V6H10" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-full" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M3.5 12c0-2.2 3.8-4 8.5-4s8.5 1.8 8.5 4-3.8 4-8.5 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M14.5 13.5L12 16l2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-drag" viewBox="0 0 24 24"><path d="M3 12h18M3 12l3-3M3 12l3 3M21 12l-3-3M21 12l-3 3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12l16-7.5-5.5 16-3-6.5z M11.5 14L20 4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 11v6M12 7.5v.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-dot-route" viewBox="0 0 24 24"><path d="M5 12h14M14 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-question" viewBox="0 0 40 40"><rect x="3" y="7" width="34" height="24" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 15.5a4 4 0 1 1 5.5 3.7c-1 .4-1.5 1.1-1.5 2v.6M20 25v.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-flight-line" viewBox="0 0 60 14"><path d="M2 7h50" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 4"/><path d="M50 2l6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-whats" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 2.5 6.5 6.5 6.5l1-1.6-2-1-1 1c-1.2-.5-2.4-1.7-2.9-2.9l1-1-1-2z" fill="currentColor"/></symbol>
+    <symbol id="brand" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 2.5v3M16 26.5v3M2.5 16h3M26.5 16h3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M16 6.5l3.2 9.5H12.8z" fill="#e2a51a"/><path d="M16 25.5l-3.2-9.5h6.4z" fill="currentColor" opacity=".9"/><circle cx="16" cy="16" r="1.6" fill="currentColor"/></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#top" aria-label="Saryarqa Compass, back to top"><svg aria-hidden="true"><use href="#brand"/></svg><span>Saryarqa Compass</span></a>
+    <span class="proto-chip" data-i18n="nav.proto">Prototype</span>
+    <ol class="nav__steps" aria-label="Your trip, step by step">
+      <li><a href="#guides" data-step="guides"><span class="nav__n">1</span><span data-i18n="nav.guides">Meet guides</span></a></li>
+      <li><a href="#planner" data-step="planner"><span class="nav__n">2</span><span data-i18n="nav.plan">Plan</span></a></li>
+      <li><a href="#preview" data-step="preview"><span class="nav__n">3</span><span data-i18n="nav.preview">Preview</span></a></li>
+      <li><a href="#arrival" data-step="arrival"><span class="nav__n">4</span><span data-i18n="nav.arrive">Arrive</span></a></li>
+    </ol>
+    <div class="nav__tools">
+      <div class="seg" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true"><span>EN</span></button>
+        <button type="button" data-lang="de" aria-pressed="false"><span>DE</span></button>
+      </div>
+      <button class="icon-btn" type="button" id="themeBtn" aria-label="Switch colour theme"><svg aria-hidden="true"><use href="#i-moon"/></svg></button>
+      <button class="btn btn--sun btn--sm nav__book" type="button" data-book data-i18n="nav.book">Book a trip</button>
+      <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Open menu" aria-expanded="false"><svg aria-hidden="true"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <div class="nav__progress" aria-hidden="true"><i id="navProgress"></i></div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span class="brand"><svg aria-hidden="true"><use href="#brand"/></svg><span>Saryarqa Compass</span></span>
+    <button class="icon-btn" type="button" id="menuClose" aria-label="Close menu"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <ol>
+    <li><a href="#guides"><small>1</small><span data-i18n="nav.guides">Meet guides</span></a></li>
+    <li><a href="#planner"><small>2</small><span data-i18n="nav.plan">Plan</span></a></li>
+    <li><a href="#preview"><small>3</small><span data-i18n="nav.preview">Preview</span></a></li>
+    <li><a href="#arrival"><small>4</small><span data-i18n="nav.arrive">Arrive</span></a></li>
+    <li><a href="#booking"><small>€</small><span data-i18n="nav.how">How booking works</span></a></li>
+  </ol>
+  <button class="mm-theme" type="button" id="mmTheme"><svg aria-hidden="true"><use href="#i-moon"/></svg><span data-i18n="nav.theme">Switch light or dark</span></button>
+  <button class="btn btn--sun" type="button" data-book data-i18n="nav.book">Book a trip</button>
+</div>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hero" aria-labelledby="heroTitle">
+    <div class="hero__media"><img id="heroImg" src="img/hero.jpg" alt="Granite ridges of the Edrey Mountains in the Karaganda region, the heart of the Saryarqa steppe" fetchpriority="high"></div>
+    <div class="hero__shade"></div>
+    <div class="wrap hero__inner">
+      <div class="hero__copy">
+        <p class="hero__kicker" data-i18n="hero.kicker">Hiking trips in Kazakhstan by Saryarqa Routes, Astana</p>
+        <h1 id="heroTitle">
+          <span class="ln"><span data-i18n="hero.l1">Hike Kazakhstan</span></span>
+          <span class="ln"><span data-i18n="hero.l2">with a guide</span></span>
+          <span class="ln"><span data-i18n="hero.l3">you've already met.</span></span>
+        </h1>
+        <p class="lede" data-i18n="hero.lede">Small-group and private walking trips to Charyn Canyon, the Kolsai Lakes, Burabay and Turkestan. See your guide, your route and every inclusion before you pay, in euros, with the card you already have.</p>
+        <div class="hero__cta">
+          <a class="btn btn--sun" href="#planner"><span data-i18n="hero.cta1">Plan my trip</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <a class="btn btn--on-night" href="#guides" data-i18n="hero.cta2">Meet the guides</a>
+        </div>
+        <ul class="hero__proof">
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.p1">Guides checked in person</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.p2">Prices in € · Visa &amp; Mastercard</span></li>
+          <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="hero.p3">Inclusions listed for every day</span></li>
+        </ul>
+      </div>
+
+      <aside class="compass-card" aria-labelledby="compassTitle">
+        <div class="compass-card__top">
+          <h2 id="compassTitle" class="data" style="font-size:1.05rem;letter-spacing:.02em" data-i18n="hero.cTitle">Bearings from Astana</h2>
+          <p data-i18n="hero.cSub">Where our routes lead</p>
+        </div>
+        <div class="compass" aria-hidden="true">
+          <svg viewBox="-130 -130 260 260" id="compassSvg"></svg>
+          <div class="compass__readout"><span class="compass__deg data" id="compassDeg">144°</span><span class="compass__to" id="compassTo">Charyn Canyon</span></div>
+        </div>
+        <ul class="dest-list" id="destList"></ul>
+      </aside>
+    </div>
+    <div class="wrap hero__foot">
+      <span><span data-i18n="hero.credit">Edrey Mountains, Karaganda region, the Saryarqa steppe.</span> Photo: Astrobond, CC BY-SA 4.0</span>
+      <span class="data">49.55° N · 74.30° E</span>
+    </div>
+  </section>
+
+  <!-- ============ WE HEARD ============ -->
+  <section class="section heard" aria-labelledby="heardTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="heardTitle" data-i18n="heard.title">Four complaints from foreign guests shaped every page.</h2>
+        <p class="lede" data-i18n="heard.lede">Travellers who came to Kazakhstan on their own told Saryarqa Routes what stopped them from booking. A solo traveller from Germany has no agent to ask, so the site has to explain, convince and guide on its own.</p>
+      </div>
+      <div class="heard__grid">
+        <article class="heard__item">
+          <svg class="heard__icon" aria-hidden="true"><use href="#i-steps"/></svg>
+          <p class="heard__q" data-i18n="heard.q1">“I couldn't work out how to book.”</p>
+          <p class="heard__fix" data-i18n-html="heard.f1"><b>Now:</b> four visible steps, a fixed 20% deposit and a booking summary that shows every euro before you pay.</p>
+          <a href="#booking" data-i18n="heard.a1">How booking works</a>
+        </article>
+        <article class="heard__item">
+          <svg class="heard__icon" aria-hidden="true"><use href="#i-user-check"/></svg>
+          <p class="heard__q" data-i18n="heard.q2">“The company didn't look trustworthy.”</p>
+          <p class="heard__fix" data-i18n-html="heard.f2"><b>Now:</b> every guide has a profile with a video intro, languages, certificates and reviews. The badge appears only after we check the documents.</p>
+          <a href="#guides" data-i18n="heard.a2">Meet the guides</a>
+        </article>
+        <article class="heard__item">
+          <svg class="heard__icon" aria-hidden="true"><use href="#i-card"/></svg>
+          <p class="heard__q" data-i18n="heard.q3">“My foreign card didn't work.”</p>
+          <p class="heard__fix" data-i18n-html="heard.f3"><b>Now:</b> prices in euros and checkout through an international provider that accepts Visa and Mastercard from Europe.</p>
+          <a href="#payment" data-i18n="heard.a3">Payment details</a>
+        </article>
+        <article class="heard__item">
+          <svg class="heard__icon" aria-hidden="true"><use href="#i-list"/></svg>
+          <p class="heard__q" data-i18n="heard.q4">“I didn't know what was included.”</p>
+          <p class="heard__fix" data-i18n-html="heard.f4"><b>Now:</b> each day lists transport, entrance fees and meals in green, and what you pay yourself in red, with prices.</p>
+          <a href="#preview" data-i18n="heard.a4">See a day-by-day plan</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 1 GUIDES ============ -->
+  <section class="section" id="guides" aria-labelledby="guidesTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="step"><span class="step__n">1</span><span data-i18n="step1">Trust</span></p>
+          <h2 id="guidesTitle" data-i18n="guides.title">Meet the person who meets you at the trailhead.</h2>
+        </div>
+        <p class="lede" data-i18n="guides.lede">Saryarqa Routes works with about 25 freelance guides. Before you send money to a company you've never visited, you should see who will actually walk with you, what languages they speak and what other travellers said.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter guides">
+        <button class="chip" type="button" id="fGerman" aria-pressed="false"><span data-i18n="guides.fDe">Speaks German</span></button>
+        <span class="filters__sep" aria-hidden="true"></span>
+        <button class="chip" type="button" data-region="all" aria-pressed="true" data-i18n="guides.rAll">All regions</button>
+        <button class="chip" type="button" data-region="almaty" aria-pressed="false" data-i18n="guides.rAlmaty">Almaty region</button>
+        <button class="chip" type="button" data-region="burabay" aria-pressed="false" data-i18n="guides.rBurabay">Burabay &amp; Astana</button>
+        <button class="chip" type="button" data-region="turkestan" aria-pressed="false" data-i18n="guides.rTurk">Turkestan</button>
+        <span class="filters__count"><span id="guideCount">6 of 25 guides</span><span class="sample-tag" data-i18n="ui.sample">Sample profiles</span></span>
+      </div>
+
+      <div class="guides-layout">
+        <div class="guide-grid" id="guideGrid" aria-live="polite"></div>
+        <aside class="verify" aria-labelledby="verifyTitle">
+          <h3 id="verifyTitle" data-i18n="guides.vTitle">What the badge means</h3>
+          <ol>
+            <li><span data-i18n-html="guides.v1"><b>ID and guide licence</b>We see the originals in our Astana office or on a video call.</span></li>
+            <li><span data-i18n-html="guides.v2"><b>First-aid certificate</b>Valid wilderness first aid, renewed every two years.</span></li>
+            <li><span data-i18n-html="guides.v3"><b>Language check</b>A native speaker tests each language the guide lists.</span></li>
+            <li><span data-i18n-html="guides.v4"><b>Reviews from real trips</b>Only travellers who booked through us can review.</span></li>
+          </ol>
+          <div class="verify__badge"><svg aria-hidden="true"><use href="#i-badge"/></svg><span data-i18n="guides.vNote">If a document expires, the badge disappears until we see the new one.</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 2 PLANNER ============ -->
+  <section class="section band--night planner" id="planner" aria-labelledby="planTitle">
+    <canvas class="planner__topo" id="topo" aria-hidden="true"></canvas>
+    <div class="wrap planner__grid">
+      <div>
+        <p class="step"><span class="step__n">2</span><span data-i18n="step2">Plan</span></p>
+        <h2 id="planTitle" data-i18n="plan.title">Describe your trip in one sentence. Get a real plan back.</h2>
+        <p class="lede" data-i18n="plan.lede">The Trip Builder speaks English and German. Tell it how many days you have, who you travel with and what you like, and it suggests a route with a day-by-day plan and a price.</p>
+        <ul class="rails">
+          <li><svg aria-hidden="true"><use href="#i-db"/></svg><span data-i18n-html="plan.r1"><b>Only real trips</b>It answers from our own database of routes, prices, dates and inclusions. Nothing is made up.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-whats"/></svg><span data-i18n-html="plan.r2"><b>A person when it doesn't know</b>Questions outside the database go to a manager on WhatsApp, with your chat attached.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n-html="plan.r3"><b>No passport data</b>The assistant never asks for passport details and removes them if you type them.</span></li>
+        </ul>
+        <div class="clock" aria-live="off">
+          <div><div class="clock__city" data-i18n="plan.berlin">Your time · Berlin</div><div class="clock__t" id="tBerlin">--:--</div></div>
+          <div><div class="clock__city" data-i18n="plan.astana">Our office · Astana</div><div class="clock__t" id="tAstana">--:--</div></div>
+          <p class="clock__note"><span class="dot" id="officeDot"></span><span id="officeNote">…</span></p>
+        </div>
+      </div>
+
+      <div class="chat" id="chat" aria-label="Trip Builder chat">
+        <div class="chat__head">
+          <div class="chat__avatar"><svg aria-hidden="true" style="color:#eaf1ef"><use href="#brand"/></svg></div>
+          <div>
+            <div class="chat__title" data-i18n="plan.chatTitle">Trip Builder</div>
+            <div class="chat__sub"><span class="dot is-open" style="width:7px;height:7px"></span><span id="chatEngine" data-i18n="plan.chatSub">Answers from Saryarqa Routes trip data</span></div>
+          </div>
+          <div class="seg" role="group" aria-label="Chat language">
+            <button type="button" data-chatlang="en" aria-pressed="true"><span>EN</span></button>
+            <button type="button" data-chatlang="de" aria-pressed="false"><span>DE</span></button>
+          </div>
+        </div>
+        <div class="chat__log" id="chatLog" aria-live="polite"></div>
+        <div class="chat__suggest" id="chatSuggest"></div>
+        <form class="chat__form" id="chatForm" autocomplete="off">
+          <label class="sr-only" for="chatInput" data-i18n="plan.inputLabel">Describe your trip</label>
+          <textarea id="chatInput" rows="1" placeholder="e.g. 4 days, canyon and lakes, two fit hikers, June" data-i18n-ph="plan.ph"></textarea>
+          <button class="chat__send" type="submit" aria-label="Send"><svg aria-hidden="true"><use href="#i-send"/></svg></button>
+        </form>
+        <p class="chat__privacy"><svg aria-hidden="true"><use href="#i-lock"/></svg><span data-i18n="plan.privacy">Don't share passport numbers here. Chats are kept for 30 days to improve answers, then deleted (GDPR).</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 PREVIEW ============ -->
+  <section class="section" id="preview" aria-labelledby="prevTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="step"><span class="step__n">3</span><span data-i18n="step3">Picture it</span></p>
+          <h2 id="prevTitle" data-i18n="prev.title">Look around every stop before you pay for it.</h2>
+        </div>
+        <p class="lede" data-i18n="prev.lede">Few people in Germany have seen the Kolsai Lakes or Charyn Canyon, and it's hard to book what you can't picture. Drag the view, follow the route on the map, and check what each day includes.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Choose a trip" id="tripTabs"></div>
+
+      <div class="preview">
+        <div>
+          <div class="pano" id="panoWrap">
+            <div id="pano" role="img" aria-label="Look-around view of the selected stop"></div>
+            <div class="pano__label"><b id="sceneTitle">Valley of Castles</b><span id="sceneSub">Charyn Canyon · 1,250 m</span></div>
+            <div class="pano__tools">
+              <button type="button" id="pRotate" aria-pressed="true" aria-label="Auto-pan"><svg aria-hidden="true"><use href="#i-rotate"/></svg></button>
+              <button type="button" id="pIn" aria-label="Zoom in"><svg aria-hidden="true"><use href="#i-plus"/></svg></button>
+              <button type="button" id="pOut" aria-label="Zoom out"><svg aria-hidden="true"><use href="#i-minus"/></svg></button>
+              <button type="button" id="pFull" aria-label="Full screen"><svg aria-hidden="true"><use href="#i-full"/></svg></button>
+            </div>
+            <div class="pano__scenes" id="sceneStrip"></div>
+          </div>
+          <p class="note" style="margin-top:.7rem"><svg aria-hidden="true"><use href="#i-info"/></svg><span data-i18n="prev.panoNote">Look-around views are built from wide photos on Wikimedia Commons. Full 360° panoramas, shot by our guides, replace them stop by stop before launch.</span></p>
+        </div>
+
+        <div class="side">
+          <div class="mapcard">
+            <div class="mapcard__head"><h3 style="font-size:1.05rem" data-i18n="prev.mapTitle">Route and drive times</h3><p id="mapMeta">5 days · 1,046 km</p></div>
+            <svg class="routemap" id="routeMap" viewBox="0 0 520 380" role="img" aria-label="Route map"></svg>
+            <div class="legend"><span><i></i><span data-i18n="prev.lgRoad">Road</span></span><span><i class="air"></i><span data-i18n="prev.lgAir">Flight / hike</span></span><span><i class="cam"></i><span data-i18n="prev.lgPhoto">Photo point</span></span></div>
+          </div>
+          <div class="pricecard">
+            <div class="pricecard__row">
+              <div><small data-i18n="prev.from">From, per person (2 travellers)</small><div class="data" id="pcPrice">€845</div></div>
+              <span class="pill pill--sky" id="pcLevel" style="background:rgba(76,195,217,.18);color:#7fd6e6">Moderate</span>
+            </div>
+            <label class="sr-only" for="pcDep" data-i18n="prev.dep">Departure</label>
+            <select id="pcDep"></select>
+            <button class="btn btn--sun" type="button" id="pcBook"><span data-i18n="prev.book">Book this trip, pay 20% now</span></button>
+            <p class="pricecard__pay"><svg aria-hidden="true" style="width:16px;height:16px"><use href="#i-lock"/></svg><span data-i18n="prev.payNote">Visa or Mastercard · charged in euros · free cancellation until 45 days before</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="days" id="dayList"></div>
+
+      <div class="elev" id="elev">
+        <div class="elev__head"><h3 style="font-size:1.05rem" data-i18n="prev.elevTitle">Altitude along the trip</h3><p data-i18n="prev.elevSub">Metres above sea level · hover for each point</p></div>
+        <svg id="elevSvg" viewBox="0 0 1000 220" role="img" aria-label="Altitude profile"></svg>
+        <div class="tip" id="elevTip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TRIPS ============ -->
+  <section class="section band--paper2" id="trips" aria-labelledby="tripsTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="tripsTitle" data-i18n="trips.title">Four routes off the usual map.</h2>
+        <p class="lede" data-i18n="trips.lede">Prices are per person for two travellers sharing, in euros. They include your guide, transport, park fees and the meals listed. Groups never go above six.</p>
+      </div>
+      <div class="trip-grid" id="tripGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 4 ARRIVAL ============ -->
+  <section class="section" id="arrival" aria-labelledby="arrTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="step"><span class="step__n">4</span><span data-i18n="step4">Arrive</span></p>
+          <h2 id="arrTitle" data-i18n="arr.title">Arrive prepared, not puzzled.</h2>
+        </div>
+        <p class="lede" data-i18n="arr.lede">Central Asia can feel complicated from home. Pick your passport and the Arrival Concierge shows the entry rules with links to the official sources, flight options into Astana or Almaty, and a driver waiting with your name.</p>
+      </div>
+
+      <div class="concierge" id="concierge">
+        <div class="concierge__rail">
+          <img id="arrImg" src="img/baiterek.jpg" alt="">
+          <ol class="wsteps" id="wsteps">
+            <li><button type="button" data-w="0"><i>1</i><span><span data-i18n="arr.s1">Passport</span><small id="wsum0">—</small></span></button></li>
+            <li><button type="button" data-w="1"><i>2</i><span><span data-i18n="arr.s2">Entry rules</span><small id="wsum1">—</small></span></button></li>
+            <li><button type="button" data-w="2"><i>3</i><span><span data-i18n="arr.s3">Flights</span><small id="wsum2">—</small></span></button></li>
+            <li><button type="button" data-w="3"><i>4</i><span><span data-i18n="arr.s4">Airport transfer</span><small id="wsum3">—</small></span></button></li>
+          </ol>
+          <div class="concierge__sum" id="arrSum"></div>
+        </div>
+        <div class="concierge__panel" id="wpanel" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BOOKING & PAYMENT ============ -->
+  <section class="section band--paper2" id="booking" aria-labelledby="bookTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="bookTitle" data-i18n="book.title">How booking works.</h2>
+        <p class="lede" data-i18n="book.lede">Four steps, all on this site. You always see the full price in euros before you pay anything.</p>
+      </div>
+      <ol class="howbook">
+        <li><b data-i18n="book.h1">Choose a trip and date</b><p data-i18n="book.p1">Pick a group departure or ask for a private date. The Trip Builder can suggest one.</p></li>
+        <li><b data-i18n="book.h2">Meet your guide</b><p data-i18n="book.p2">Request a guide you liked, or we match you with a verified one who speaks your language.</p></li>
+        <li><b data-i18n="book.h3">Pay a 20% deposit</b><p data-i18n="book.p3">By Visa or Mastercard, in euros. The rest is due 30 days before you travel.</p></li>
+        <li><b data-i18n="book.h4">Get your arrival pack</b><p data-i18n="book.p4">Entry rules, flight tips, your driver's details and a WhatsApp group with your guide.</p></li>
+      </ol>
+
+      <div class="paygrid" id="payment">
+        <div class="paybox paybox--ink">
+          <h3 data-i18n="book.payTitle">Cards from home work here.</h3>
+          <div class="cards" aria-label="Accepted cards"><span class="cardmark cardmark--visa">VISA</span><span class="cardmark cardmark--mc"><i></i><i></i><span>Mastercard</span></span></div>
+          <ul class="ticks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.t1">Prices in euros, so your bank shows the amount you expect.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.t2">Payment runs on an international provider's secure page with 3-D Secure. We never see your full card number.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.t3">Free cancellation until 45 days before departure, deposit refunded.</span></li>
+          </ul>
+          <div class="eur" aria-label="Example: Canyons & Kolsai Lakes for two">
+            <span data-i18n="book.ex1">Canyons &amp; Kolsai Lakes, 2 travellers</span><span class="data">€1,690</span>
+            <span data-i18n="book.ex2">Airport transfer, sedan</span><span class="data">€39</span>
+            <span class="tot" data-i18n="book.ex3">Deposit today (20%)</span><span class="data tot">€345.80</span>
+          </div>
+        </div>
+        <div class="paybox paybox--line">
+          <h3 data-i18n="book.gdprTitle">Your data, handled under GDPR.</h3>
+          <ul class="ticks">
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.g1">We only ask for what the booking needs: names, email, phone and dates.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.g2">The Trip Builder doesn't store passport details. Hotels register you at check-in, as Kazakh law requires.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.g3">You can download or delete your data at any time with one email.</span></li>
+            <li><svg aria-hidden="true"><use href="#i-check"/></svg><span data-i18n="book.g4">Analytics cookies stay off unless you allow them.</span></li>
+          </ul>
+          <button class="btn btn--ghost" type="button" data-book data-i18n="book.cta" style="justify-self:start">Start a booking</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap faq">
+      <div>
+        <h2 id="faqTitle" data-i18n="faq.title">Questions we hear from Germany.</h2>
+        <p class="lede" style="margin-top:1.2rem" data-i18n="faq.lede">Something missing? Ask the Trip Builder, or a manager on WhatsApp between 09:00 and 18:00 Astana time.</p>
+      </div>
+      <div>
+        <details open><summary><span data-i18n="faq.q1">What is included in the price?</span><i aria-hidden="true"></i></summary><div data-i18n="faq.a1">Your licensed guide, private transport, national park and entrance fees, the nights listed (twin rooms) and the meals shown for each day. Flights, travel insurance, tips and optional extras such as horse rides are not included and are listed with their price.</div></details>
+        <details><summary><span data-i18n="faq.q2">Do I need a visa?</span><i aria-hidden="true"></i></summary><div data-i18n="faq.a2">Citizens of Germany, Austria and Switzerland can currently visit Kazakhstan without a visa for up to 30 days. Rules change, so the Arrival Concierge links you to the official sources to confirm before you fly.</div></details>
+        <details><summary><span data-i18n="faq.q3">How fit do I need to be?</span><i aria-hidden="true"></i></summary><div data-i18n="faq.a3">Each day shows distance, ascent and maximum altitude. Most days have a gentle option, for example a lakeshore path instead of the climb to Kolsai Lake 2.</div></details>
+        <details><summary><span data-i18n="faq.q4">What happens if my guide is ill?</span><i aria-hidden="true"></i></summary><div data-i18n="faq.a4">We replace them with another verified guide who speaks your language and tell you before the trip starts. If you'd rather not travel with someone else, you can cancel free of charge.</div></details>
+        <details><summary><span data-i18n="faq.q5">When is the best time to go?</span><i aria-hidden="true"></i></summary><div data-i18n="faq.a5">Mountain lakes and canyons: mid-May to early October. Burabay: May to September. Turkestan: April to June and September to October, because July and August are very hot.</div></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MVP NOTES ============ -->
+  <section class="section band--night" id="mvp" aria-labelledby="mvpTitle">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="mvpTitle" data-i18n="mvp.title">How we build it in 12 weeks.</h2>
+        <p class="lede" data-i18n="mvp.lede">The MVP uses common tools only: a standard web framework, an existing AI language model connected to the trip database, and embedded panorama and map tools. That keeps the plan realistic inside the budget, and a small group of real German travellers tests it before we build more.</p>
+      </div>
+      <div class="mvp-grid">
+        <div class="weeks" id="weeks"></div>
+        <div style="display:grid;gap:1.6rem;align-content:start">
+          <div class="mvp-total"><span class="data">20,000,000 ₸</span><span class="muted" data-i18n="mvp.budget">total budget · indicative split</span></div>
+          <div class="budget" id="budget"></div>
+          <div class="techlist" id="tech"></div>
+          <p class="small muted" data-i18n="mvp.open">Open before launch: confirm which international payment provider accepts a Kazakhstani company and what it charges, and replace look-around photos with 360° panoramas shot by the guides.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div style="display:grid;gap:1rem;align-content:start">
+      <span class="brand"><svg aria-hidden="true"><use href="#brand"/></svg><span>Saryarqa Compass</span></span>
+      <p class="small" data-i18n="foot.about">A platform by Saryarqa Routes, Astana, for independent travellers who like nature and hiking. Prototype for the case study; guide profiles and reviews are samples.</p>
+      <p class="small"><span data-i18n="foot.contact">Manager on WhatsApp, Mon–Fri 09:00–18:00 Astana time (UTC+5).</span></p>
+    </div>
+    <div>
+      <p class="small" style="color:var(--on-night);font-weight:600;margin-bottom:.6rem" data-i18n="foot.credits">Photo credits (Wikimedia Commons)</p>
+      <ul class="credits" id="credits"></ul>
+    </div>
+  </div>
+  <div class="wrap foot__base"><span>© 2026 Saryarqa Routes</span><span data-i18n="foot.map">Map data: Natural Earth (public domain)</span></div>
+</footer>
+
+<!-- guide profile -->
+<dialog class="profile" id="profile" aria-labelledby="pfName">
+  <div class="profile__video" id="pfVideo">
+    <div class="profile__slides" id="pfSlides"></div>
+    <span class="profile__vlabel" data-i18n="guides.vidLabel">Video intro · captions on</span>
+    <p class="profile__caption" id="pfCaption"></p>
+    <div class="profile__controls">
+      <button type="button" id="pfPlay" aria-label="Pause"><svg aria-hidden="true"><use href="#i-pause"/></svg></button>
+      <div class="profile__bar"><i id="pfBar"></i></div>
+      <span class="profile__time data" id="pfTime">0:00</span>
+    </div>
+  </div>
+  <div class="profile__body" id="pfBody"></div>
+  <button class="icon-btn profile__close" type="button" id="pfClose" aria-label="Close profile"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+</dialog>
+
+<!-- booking drawer -->
+<dialog class="drawer" id="drawer" aria-labelledby="drTitle">
+  <div class="drawer__head">
+    <h3 id="drTitle" data-i18n="dr.title">Book your trip</h3>
+    <button class="icon-btn" type="button" id="drClose" aria-label="Close booking"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="dsteps" aria-hidden="true"><span></span><span></span><span></span></div>
+  <div class="dsteps-l" id="dstepsL"></div>
+  <div class="drawer__body" id="drBody"></div>
+  <div class="drawer__foot" id="drFoot">
+    <div class="drawer__total"><div><small data-i18n="dr.total">Total for your group</small><span class="data" id="drTotal">€0</span></div><div style="text-align:right"><small data-i18n="dr.depositToday">Deposit today (20%)</small><span class="data" id="drDeposit" style="font-size:1.2rem">€0</span></div></div>
+    <div class="drawer__btns"><button class="btn btn--ghost" type="button" id="drBack" data-i18n="dr.back">Back</button><button class="btn btn--sun" type="button" id="drNext" data-i18n="dr.next">Continue</button></div>
+  </div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><svg aria-hidden="true"><use href="#i-check"/></svg><span id="toastText"></span></div>
+
+<div class="cookie" id="cookie" hidden role="dialog" aria-labelledby="cookieTitle">
+  <b id="cookieTitle" data-i18n="ck.title">Cookies</b>
+  <p data-i18n="ck.text">We use necessary cookies to run bookings. Analytics help us improve the site and stay off unless you allow them.</p>
+  <div class="cookie__btns"><button class="btn btn--sm btn--ghost" type="button" id="ckNo" data-i18n="ck.no">Only necessary</button><button class="btn btn--sm btn--sun" type="button" id="ckYes" data-i18n="ck.yes">Allow analytics</button></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pannellum/2.5.6/pannellum.js"></script>
+<script src="js/map-data.js"></script>
+<script src="js/data.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
