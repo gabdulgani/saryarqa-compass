@@ -48,6 +48,10 @@
 
   /* ---------------- trip helpers ---------------- */
   const tripById = id => D.TRIPS.find(t => t.id === id) || D.TRIPS[0];
+  // Turkestan stays on the current sales system until after the MVP pilot
+  const isSoon = id => !!(D.TRIPS.find(t => t.id === id) || {}).soon;
+  const bookable = () => D.TRIPS.filter(t => !t.soon);
+  const SOON_R = new Set(D.TRIPS.filter(t => t.soon).flatMap(t => t.modules.map(id => D.MODULES[id].region)));
   const modsOf = ids => ids.map(id => Object.assign({ id }, D.MODULES[id]));
   const LV = { easy: 0, moderate: 1, demanding: 2 };
   const LVN = ['easy', 'moderate', 'demanding'];
@@ -251,7 +255,7 @@
     const langs = g.langs.slice(0, 4).map(([c, l]) => `<span class="lang${c === 'de' ? ' lang--de' : ''}" title="${esc(tx(D.LANGS[c]))}">${c.toUpperCase()} <b>${esc(lvlLabel(l))}</b></span>`).join('');
     return `<article class="guide" data-g="${g.id}">
       <div class="guide__media"><img src="${g.img}" alt="" loading="lazy" width="640" height="480">
-        <span class="guide__play"><i>${icon('i-play')}</i>${esc(T('watch'))}</span>
+        <span class="guide__play"><i>${icon('i-play')}</i>${esc(T('watch'))}</span>${SOON_R.has(g.region) ? `<span class="soon-tag soon-tag--img">${esc(T('soon'))}</span>` : ''}
         <div class="guide__mono"><span class="guide__initials" aria-hidden="true">${g.ini}</span></div></div>
       <div class="guide__body">
         <div class="guide__row"><h3 class="guide__name"><button class="guide__open" type="button" data-guide="${g.id}">${esc(g.name)}</button></h3><span class="verified" title="${esc(T('checkedOn', { d: isoDate(g.checked) }))}">${icon('i-badge')}${esc(T('verified'))}</span></div>
@@ -296,7 +300,9 @@
       <div><p class="sublabel">${esc(T('certs'))}</p><ul class="certs">${g.certs.map(c => `<li>${icon('i-check')}<span>${esc(tx(c))}</span></li>`).join('')}</ul></div>
       <div><p class="sublabel">${esc(T('leads'))}</p><div style="display:flex;gap:.4rem;flex-wrap:wrap">${trips}</div></div>
       <div><p class="sublabel"><span>${esc(T('reviewsH'))}</span><span class="sample-tag">${S.lang === 'de' ? 'Beispiele' : 'Samples'}</span></p><div style="display:grid;gap:.6rem">${revs}</div></div>
-      <button class="btn btn--sun" type="button" id="pfRequest">${esc(T('request', { name: g.name.split(' ')[0] }))}</button>`;
+      ${g.trips.every(isSoon)
+        ? `<p class="note">${icon('i-info')}<span>${esc(T('soonNote'))}</span></p><a class="btn btn--ghost" href="${esc(waLink(S.lang))}" target="_blank" rel="noopener">${icon('i-whats')}${esc(T('askManager'))}</a>`
+        : `<button class="btn btn--sun" type="button" id="pfRequest">${esc(T('request', { name: g.name.split(' ')[0] }))}</button>`}`;
   }
   function openProfile(id) {
     const g = D.GUIDES.find(x => x.id === id); if (!g) return;
@@ -495,7 +501,7 @@
     const d = days || 5;
     const notes = [];
     let ch;
-    if (f.turk && !f.alm && !f.bura) { ch = pickChain(CH.turk, d); if (ch.capped) notes.push(de ? 'Turkestan-Reisen dauern bei uns bis zu 3 Tage. Ein Manager kann sie mit den Bergen kombinieren (Inlandsflug).' : 'Our Turkestan trips run up to 3 days. A manager can combine them with the mountains via a domestic flight.'); }
+    if (f.turk && !f.alm && !f.bura) { ch = pickChain(CH.turk, d); notes.push(T('soonChat', null, lang)); if (ch.capped) notes.push(de ? 'Turkestan-Reisen dauern bei uns bis zu 3 Tage. Ein Manager kann sie mit den Bergen kombinieren (Inlandsflug).' : 'Our Turkestan trips run up to 3 days. A manager can combine them with the mountains via a domestic flight.'); }
     else if (f.bura && !f.alm) { ch = d <= 3 ? pickChain(CH.bura, d) : pickChain(CH.combo, d); if (d > 3) notes.push(de ? 'Für mehr als 3 Tage kombiniere ich Burabay mit den Bergen im Süden.' : 'For more than 3 days I combine Burabay with the mountains in the south.'); }
     else if (f.alm && !f.bura) { ch = d <= 5 ? pickChain(CH.alm, d) : pickChain(CH.combo, d); if (d > 5) notes.push(de ? 'Für mehr als 5 Tage beginnt der Plan in Burabay im Norden.' : 'For more than 5 days the plan starts in Burabay in the north.'); }
     else if (f.alm && f.bura) { ch = pickChain(CH.combo, Math.max(4, d)); if (d < 4) notes.push(de ? 'Beide Regionen brauchen mindestens 4 Tage.' : 'Both regions need at least 4 days.'); }
@@ -510,10 +516,7 @@
     if (pace === 'gentle' && plan.mods.some(m => m.gentle)) r += de ? ' Jeder Wandertag hat eine leichte Variante, du entscheidest vor Ort. Am Kolsai geht z. B. der Uferweg statt des Aufstiegs zum See 2.' : ' Every walking day has an easy option you can choose on the day, for example the lakeshore path at Kolsai instead of the climb to Lake 2.';
     if (month) {
       if (plan.season.includes(month)) r += de ? ` Der ${monthName(month, 'de')} liegt für alle Stationen in der Saison.` : ` ${monthName(month, 'en')} is in season for every stop.`;
-      else {
-        const alt = SEASON.turkestan.includes(month) && !plan.regions.includes('turkestan');
-        r += de ? ` Im ${monthName(month, 'de')} laufen hier keine Gruppenreisen${alt ? '; Turkestan wäre dann ideal' : ''}.` : ` We don't run these trips in ${monthName(month, 'en')}${alt ? '; Turkestan is a good choice that month' : ''}.`;
-      }
+      else r += de ? ` Im ${monthName(month, 'de')} laufen hier keine Gruppenreisen.` : ` We don't run these trips in ${monthName(month, 'en')}.`;
     }
     if (notes.length) r += ' ' + notes.join(' ');
     r += de ? ' Preis und Leistungen pro Tag siehst du unten.' : ' Price and daily inclusions are below.';
@@ -566,6 +569,7 @@
     let r = de ? `${tx(trip.name, 'de')} (${trip.modules.length} Tage) kostet ${eur(pp, 'de')} pro Person bei ${nn} Reisenden, zusammen ${eur(pp * nn, 'de')}.` : `${tx(trip.name, 'en')} (${trip.modules.length} days) costs ${eur(pp, 'en')} per person for ${nn} travellers, ${eur(pp * nn, 'en')} in total.`;
     if (month && !deps.length) r += de ? ` Im ${monthName(month, 'de')} gibt es keine Gruppentermine; private Termine sind möglich.` : ` There are no group departures in ${monthName(month, 'en')}; private dates are possible.`;
     else if (deps.length) r += (de ? ' Nächste Termine: ' : ' Next departures: ') + deps.map(d => fdate(d.date, lang, { year: undefined })).join(', ') + ' 2027.';
+    if (trip.soon) r += ' ' + T('soonChat', null, lang);
     Chat.plan = makePlan(trip.modules, { n: nn, month });
     return { lang, reply: r, plan: Chat.plan };
   }
@@ -582,6 +586,7 @@
     return 'https://wa.me/?text=' + encodeURIComponent(msg);
   }
   function planCard(p, lang) {
+    const soon = p.regions.some(r => SOON_R.has(r));
     const de = lang === 'de';
     const pp = perPerson(p.base, p.n);
     const stops = routeLine(p.ids).map(s => esc(tx(SHORT[s] || D.STOPS[s].name, lang)));
@@ -605,7 +610,8 @@
       <div class="plan__inc"><div><span class="k">${esc(T('incl', null, lang))}:</span>${incKeys.map(k => `<span class="pill pill--easy">${esc(tx(D.INC[k], lang))}</span>`).join('')}</div>
         <div><span class="k">${esc(T('notIncl', null, lang))}:</span><span class="pill pill--demanding">${de ? 'Internationale Flüge' : 'International flights'}</span>${exKeys.map(k => `<span class="pill pill--demanding">${esc(tx(D.EXTRA[k].n, lang))} ${esc(xp(D.EXTRA[k].p, lang))}</span>`).join('')}</div>
         <div><span class="k">${esc(T('departures', null, lang))}:</span><span>${deps}</span></div></div>
-      <div class="plan__foot"><button class="btn btn--sm btn--ghost" type="button" data-act="preview">${esc(T('seePreview', null, lang))}</button><button class="btn btn--sm btn--sun" type="button" data-act="book">${esc(T('bookPlan', null, lang))}</button><a class="btn btn--sm btn--ghost" data-act="wa" href="${esc(waLink(lang))}" target="_blank" rel="noopener">${icon('i-whats')}${esc(T('askManager', null, lang))}</a></div>
+      ${soon ? `<p class="note plan__soon">${icon('i-info')}<span>${esc(T('soonNote', null, lang))}</span></p>` : ''}
+      <div class="plan__foot"><button class="btn btn--sm btn--ghost" type="button" data-act="preview">${esc(T('seePreview', null, lang))}</button>${soon ? '' : `<button class="btn btn--sm btn--sun" type="button" data-act="book">${esc(T('bookPlan', null, lang))}</button>`}<a class="btn btn--sm btn--ghost" data-act="wa" href="${esc(waLink(lang))}" target="_blank" rel="noopener">${icon('i-whats')}${esc(T('askManager', null, lang))}</a></div>
     </div>`;
   }
   function renderBot(res, viaClaude, anim) {
@@ -623,7 +629,7 @@
       pricing: { note: 'Module prices are EUR per person for 2 travellers sharing. Group factor: 1 traveller x1.4, 3-4 travellers x0.92, 5-6 x0.88. Single room +28 EUR per night. Deposit 20%, balance 30 days before, free cancellation until 45 days before. Max group 6.' },
       office: 'Managers on WhatsApp Mon-Fri 09:00-18:00 Astana time (UTC+5).',
       modules: Object.fromEntries(Object.entries(D.MODULES).map(([id, m]) => [id, { region: m.region, title: m.title.en, start: m.legs[0][0], end: m.legs[m.legs.length - 1][1], price_eur: m.price, hike: m.hike, level: m.level, gentle_option: m.gentle ? { hike: m.gentle.hike, note: m.gentle.note.en } : null, max_altitude_m: m.maxAlt, included: m.inc.map(k => D.INC[k].en), pay_separately: m.extra.map(k => D.EXTRA[k].n.en + (D.EXTRA[k].p ? ' EUR ' + [].concat(D.EXTRA[k].p).join('-') : '')), night: m.sleep }])),
-      trips: D.TRIPS.map(t => ({ id: t.id, name: t.name.en, modules: t.modules, season_months: t.months, fly_in: t.airIn, fly_out: t.airOut, guides: t.guides })),
+      trips: D.TRIPS.map(t => ({ id: t.id, name: t.name.en, modules: t.modules, season_months: t.months, fly_in: t.airIn, fly_out: t.airOut, guides: t.guides, online_booking: !t.soon })),
       chains_that_work: CH,
       guides: D.GUIDES.map(g => ({ name: g.name, region: g.region, languages: g.langs.map(l => l.join(' ')).join(', '), years: g.years, trips: g.trips }))
     };
@@ -631,6 +637,7 @@
     return 'You are the Trip Builder for Saryarqa Routes, a small hiking tour company in Astana, Kazakhstan. You talk to independent travellers, mostly from Germany.\n'
       + 'Rules:\n- Use ONLY facts in DATA. Never invent trips, places, prices, dates, inclusions, visa rules, gear, weather or anything else.\n'
       + '- If the answer is not in DATA, say briefly that it is not in the trip data and set "handoff": true so a manager on WhatsApp answers.\n'
+      + '- Trips with online_booking false (Turkestan) come after the pilot: you may describe them, but say they cannot be booked online yet and a manager books them on WhatsApp.\n'
       + '- Never ask for or repeat passport numbers or other ID numbers.\n'
       + '- Reply in the language of the latest user message: German with informal "du", otherwise English. Plain text, no markdown, at most 80 words.\n'
       + '- To suggest a trip, return module ids in travel order (prefer a list from chains_that_work). Use "gentle" pace for older parents, children or anyone asking for easy walks. In that reply do NOT state prices, dates or inclusion lists: the page computes them from your ids.\n'
@@ -1006,6 +1013,10 @@
     const lv = levelOf(trip.modules, false);
     $('#pcLevel').textContent = T(lv);
     const deps = departures(trip);
+    const soon = !!trip.soon;
+    ['#pcDep', '#pcBook', '.pricecard__pay'].forEach(q => { $(q).hidden = soon; });
+    $('#pcSoon').hidden = !soon;
+    if (soon) $('#pcSoon').innerHTML = `<span class="soon-tag">${esc(T('soon'))}</span><p>${esc(T('soonNote'))}</p><a class="btn btn--on-night" href="${esc(waLink(S.lang))}" target="_blank" rel="noopener">${icon('i-whats')}${esc(T('askManager'))}</a>`;
     $('#pcDep').innerHTML = deps.map((d, i) => `<option value="${i}">${esc(fdate(d.date))} · ${esc(T('seats', { n: d.seats }))}</option>`).join('') + `<option value="private">${esc(T('privateDate'))}</option>`;
   }
 
@@ -1067,11 +1078,11 @@
       inc.push(`${nightsOf(t.modules)} ${T(nightsOf(t.modules) === 1 ? 'night' : 'nights')}, ${S.lang === 'de' ? 'Doppelzimmer' : 'twin rooms'}`);
       const lv = levelOf(t.modules, false);
       return `<article class="trip">
-        <div class="trip__img"><img src="${t.img}" alt="${esc(tx(t.alt))}" loading="lazy"><span class="trip__days">${t.modules.length} ${esc(T('days'))} · ${esc(T(lv))}</span></div>
+        <div class="trip__img"><img src="${t.img}" alt="${esc(tx(t.alt))}" loading="lazy"><span class="trip__days">${t.modules.length} ${esc(T('days'))} · ${esc(T(lv))}</span>${t.soon ? `<span class="soon-tag soon-tag--img">${esc(T('soon'))}</span>` : ''}</div>
         <div class="trip__body"><h3>${esc(tx(t.name))}</h3><p class="trip__route">${esc(route)}</p>
-          <ul class="trip__inc">${inc.map(x => `<li>${icon('i-check')}<span>${esc(x)}</span></li>`).join('')}</ul></div>
+          <ul class="trip__inc">${inc.map(x => `<li>${icon('i-check')}<span>${esc(x)}</span></li>`).join('')}</ul>${t.soon ? `<p class="note">${icon('i-info')}<span>${esc(T('soonNote'))}</span></p>` : ''}</div>
         <div class="trip__foot"><div class="trip__price"><small>${esc(T('from'))}</small><span class="data">${eur(base)}</span><small>${esc(T('perPerson'))}</small></div>
-          <div class="trip__btns"><button class="btn btn--sm btn--ghost" type="button" data-tprev="${t.id}">${esc(T('preview'))}</button><button class="btn btn--sm btn--sun" type="button" data-tbook="${t.id}">${esc(T('book'))}</button></div></div>
+          <div class="trip__btns"><button class="btn btn--sm btn--ghost" type="button" data-tprev="${t.id}">${esc(T('preview'))}</button>${t.soon ? `<a class="btn btn--sm btn--ghost" href="${esc(waLink(S.lang))}" target="_blank" rel="noopener">${icon('i-whats')}${esc(T('askManager'))}</a>` : `<button class="btn btn--sm btn--sun" type="button" data-tbook="${t.id}">${esc(T('book'))}</button>`}</div></div>
       </article>`;
     }).join('');
   }
@@ -1142,7 +1153,7 @@
       const opts = flightOptions(trip);
       h = `<h3>${esc(T('w3h', { city: tx(D.KZ_AIRPORTS[trip.airIn]) }))}</h3><p class="muted">${esc(T('w3p', { trip: tx(trip.name) }))}</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:.8rem">
-          <div class="field"><label for="wTrip">${esc(T('tripFor'))}</label><select id="wTrip">${D.TRIPS.map(t => `<option value="${t.id}"${t.id === S.wTrip ? ' selected' : ''}>${esc(tx(t.name))}</option>`).join('')}</select></div>
+          <div class="field"><label for="wTrip">${esc(T('tripFor'))}</label><select id="wTrip">${bookable().map(t => `<option value="${t.id}"${t.id === S.wTrip ? ' selected' : ''}>${esc(tx(t.name))}</option>`).join('')}</select></div>
           <div class="field"><label for="wHome">${esc(T('fromAirport'))}</label><select id="wHome">${D.HOME_AIRPORTS.map(([c, n]) => `<option value="${c}"${c === S.home ? ' selected' : ''}>${esc(tx(n))} (${c})</option>`).join('')}</select></div>
         </div>
         <div class="flights">${opts.map(o => `<div class="flight"><div class="flight__route">${o.route.map(esc).join(`<svg aria-hidden="true"><use href="#i-flight-line"/></svg>`)}</div><span class="pill ${o.kind === 'nonstop' ? 'pill--easy' : 'pill--sky'}">${esc(T(o.kind))}</span><p>${esc(o.text)}</p><a class="btn btn--sm btn--ghost" href="${o.link}" target="_blank" rel="noopener">${esc(T('search'))}${icon('i-ext')}</a></div>`).join('')}</div>
@@ -1241,6 +1252,7 @@
     if (o.plan) { S.cart.plan = o.plan; S.cart.trip = 'plan'; S.cart.dep = 'private'; }
     else if (o.trip) { S.cart.trip = o.trip; }
     else if (S.cart.trip !== 'plan') S.cart.trip = S.trip;
+    if (S.cart.trip !== 'plan' && isSoon(S.cart.trip)) S.cart.trip = bookable()[0].id;
     if (o.n) S.cart.n = o.n;
     if (o.guide) S.cart.guide = o.guide;
     if (S.cart.trip !== 'plan') {
@@ -1260,7 +1272,7 @@
     $('#dstepsL').innerHTML = ['dS1', 'dS2', 'dS3'].map((k, i) => i === Math.min(2, DR.step) ? `<b>${esc(T(k))}</b>` : `<span>${esc(T(k))}</span>`).join('');
     let h = '';
     if (DR.step === 0) {
-      const opts = (S.cart.plan ? `<option value="plan"${S.cart.trip === 'plan' ? ' selected' : ''}>${esc(tx(S.cart.plan.title))} (Trip Builder)</option>` : '') + D.TRIPS.map(t => `<option value="${t.id}"${t.id === S.cart.trip ? ' selected' : ''}>${esc(tx(t.name))} · ${t.modules.length} ${esc(T('days'))}</option>`).join('');
+      const opts = (S.cart.plan ? `<option value="plan"${S.cart.trip === 'plan' ? ' selected' : ''}>${esc(tx(S.cart.plan.title))} (Trip Builder)</option>` : '') + bookable().map(t => `<option value="${t.id}"${t.id === S.cart.trip ? ' selected' : ''}>${esc(tx(t.name))} · ${t.modules.length} ${esc(T('days'))}</option>`).join('');
       let dates = '';
       if (S.cart.trip !== 'plan') {
         dates = departures(tripById(S.cart.trip)).map((d, i) => `<button class="dep" type="button" data-dep="${i}" aria-pressed="${S.cart.dep === i}"><span class="data">${esc(fdate(d.date, null, { weekday: 'short' }))}</span><small>${esc(tx(tripById(S.cart.trip).name))}</small><em class="${d.seats <= 2 ? 'low' : ''}">${esc(T('seats', { n: d.seats }))}</em></button>`).join('');

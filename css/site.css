@@ -526,7 +526,7 @@ dialog[open]::backdrop { animation: fadeIn 300ms ease both; }
 .trip__inc { list-style: none; padding: 0; margin: 0; display: grid; gap: .25rem; font-size: .85rem; }
 .trip__inc li { display: grid; grid-template-columns: 16px 1fr; gap: .45rem; }
 .trip__inc svg { width: 15px; height: 15px; margin-top: .2rem; color: var(--pine); }
-.trip__foot { display: flex; justify-content: space-between; align-items: flex-end; gap: .6rem; padding: .9rem 1.1rem 1.1rem; border-top: 1px solid var(--line); }
+.trip__foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: .6rem; padding: .9rem 1.1rem 1.1rem; border-top: 1px solid var(--line); }
 .trip__price .data { font-size: 1.55rem; line-height: 1; display: block; }
 .trip__price small { font-size: .75rem; color: var(--ink-2); }
 .trip__btns { display: flex; gap: .4rem; }
@@ -740,3 +740,11 @@ dialog[open]::backdrop { animation: fadeIn 300ms ease both; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
 }
+
+/* trips that open for online booking after the pilot */
+.soon-tag { display: inline-flex; align-items: center; justify-self: start; padding: .22rem .65rem; border-radius: 999px; border: 1px solid var(--sun); color: var(--sun); font-size: .76rem; font-weight: 600; letter-spacing: .01em; }
+.soon-tag--img { position: absolute; left: .8rem; bottom: .8rem; z-index: 1; border: 0; background: var(--sun); color: #0e2127; }
+.pricecard__soon { display: grid; gap: .6rem; }
+.pricecard__soon p { font-size: .88rem; color: var(--on-night-2); }
+.pricecard [hidden] { display: none !important; }
+.plan__soon { margin: 0 1.1rem .9rem; }

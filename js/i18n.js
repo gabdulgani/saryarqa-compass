@@ -4,7 +4,7 @@ window.SC_I18N = {
     'nav.proto': 'Prototyp', 'nav.guides': 'Guides', 'nav.plan': 'Planen', 'nav.preview': 'Vorschau', 'nav.arrive': 'Ankommen', 'nav.book': 'Reise buchen', 'nav.how': 'So buchst du', 'nav.theme': 'Hell oder dunkel',
     'hero.kicker': 'Wanderreisen in Kasachstan von Saryarqa Routes, Astana',
     'hero.l1': 'Wandern in Kasachstan', 'hero.l2': 'mit einem Guide,', 'hero.l3': 'den du schon kennst.',
-    'hero.lede': 'Kleingruppen- und Privatreisen zum Charyn-Canyon, zu den Kolsai-Seen, nach Burabay und Turkestan. Du siehst deinen Guide, deine Route und jede Leistung, bevor du zahlst: in Euro, mit deiner eigenen Karte.',
+    'hero.lede': 'Kleingruppen- und Privatreisen zum Charyn-Canyon, zu den Kolsai-Seen und nach Burabay, Turkestan folgt. Du siehst deinen Guide, deine Route und jede Leistung, bevor du zahlst: in Euro, mit deiner eigenen Karte.',
     'hero.cta1': 'Meine Reise planen', 'hero.cta2': 'Guides kennenlernen',
     'hero.p1': 'Guides persönlich geprüft', 'hero.p2': 'Preise in € · Visa & Mastercard', 'hero.p3': 'Leistungen für jeden Tag aufgelistet',
     'hero.cTitle': 'Peilung ab Astana', 'hero.cSub': 'Wohin unsere Routen führen', 'hero.credit': 'Edrey-Berge, Region Karaganda, die Saryarqa-Steppe.',
@@ -96,6 +96,9 @@ window.SC_I18N = {
     years: ['years', 'Jahre'], yearsGuiding: ['years guiding', 'Jahre als Guide'], reviews: ['reviews', 'Bewertungen'],
     verified: ['Verified', 'Geprüft'], checkedOn: ['Documents checked {d}', 'Dokumente geprüft am {d}'],
     languages: ['Languages', 'Sprachen'], certs: ['Checked documents', 'Geprüfte Nachweise'], reviewsH: ['Reviews from past travellers', 'Bewertungen früherer Reisender'],
+    soon: ['Coming after the pilot', 'Nach dem Pilot verfügbar'],
+    soonNote: ['Online booking for Turkestan opens after the pilot. Until then our managers book it with you on WhatsApp.', 'Turkestan ist nach dem Pilot online buchbar. Bis dahin buchen unsere Manager die Reise mit dir über WhatsApp.'],
+    soonChat: ['Turkestan can only be booked online after the pilot, so a manager books it with you on WhatsApp.', 'Turkestan ist erst nach dem Pilot online buchbar, deshalb bucht ein Manager die Reise mit dir über WhatsApp.'],
     request: ['Request {name} for my trip', '{name} für meine Reise anfragen'], leads: ['Leads', 'Führt'], native: ['native', 'Muttersprache'],
     rating: ['rating', 'Bewertung'], noGuides: ['No guide matches these filters yet. Try another region.', 'Noch kein Guide passt zu diesen Filtern. Probier eine andere Region.'],
     play: ['Play', 'Abspielen'], pause: ['Pause', 'Pause'], replay: ['Replay', 'Nochmal'],
@@ -171,7 +174,7 @@ window.SC_I18N = {
     de: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']
   },
   suggest: {
-    en: ['Five days, hiking, travelling with my mother, in September', '3 days from Astana, gentle walks', 'Canyon and lakes, 4 days, fit hikers, June', 'Is lunch included on day 2?', 'Turkestan in May, what does it cost?', 'Can I bring my drone?'],
-    de: ['Fünf Tage wandern mit meiner Mutter im September', '3 Tage ab Astana, leichte Wanderungen', 'Canyon und Seen, 4 Tage, sportlich, Juni', 'Ist das Mittagessen an Tag 2 inklusive?', 'Turkestan im Mai, was kostet das?', 'Darf ich meine Drohne mitnehmen?']
+    en: ['Five days, hiking, travelling with my mother, in September', '3 days from Astana, gentle walks', 'Canyon and lakes, 4 days, fit hikers, June', 'Is lunch included on day 2?', 'Burabay in July, what does it cost?', 'Can I bring my drone?'],
+    de: ['Fünf Tage wandern mit meiner Mutter im September', '3 Tage ab Astana, leichte Wanderungen', 'Canyon und Seen, 4 Tage, sportlich, Juni', 'Ist das Mittagessen an Tag 2 inklusive?', 'Burabay im Juli, was kostet das?', 'Darf ich meine Drohne mitnehmen?']
   }
 };

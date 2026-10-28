@@ -249,7 +249,7 @@
     { id: 'silk', img: 'img/turkistan.jpg', alt: L('Mausoleum of Khoja Ahmed Yasawi in Turkistan', 'Mausoleum des Hodscha Ahmad Yasawi in Turkistan'),
       name: L('Turkestan & the Silk Road', 'Turkestan & die Seidenstraße'), start: 'turkestan', end: 'turkestan', airIn: 'HSA', airOut: 'HSA',
       modules: ['hsa-turkestan', 'sauran-otrar', 'karatau-hsa'],
-      months: [4, 5, 6, 9, 10], weekday: 4, guides: ['yerlan'],
+      months: [4, 5, 6, 9, 10], weekday: 4, guides: ['yerlan'], soon: true,
       tags: ['culture', 'history', 'architecture'] }
   ];
 
