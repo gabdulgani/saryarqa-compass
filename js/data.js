@@ -362,23 +362,34 @@
     { id: 'turkestan', n: L('Turkestan', 'Turkestan') }
   ];
 
+  /* MVP plan and first-year costs, taken from the team report (Big Yahu, Technology Product) */
   const MVP = {
     weeks: [
-      { w: [1, 2], t: L('Discovery and content', 'Analyse und Inhalte'), d: L('Interview past guests, collect guide documents, build the trip database.', 'Gäste befragen, Guide-Dokumente sammeln, Reisedatenbank aufbauen.') },
-      { w: [3, 6], t: L('Core site and payments', 'Website-Kern und Zahlung'), d: L('Trip pages, guide profiles, booking flow, international card payments in EUR.', 'Reiseseiten, Guide-Profile, Buchungsablauf, internationale Kartenzahlung in EUR.') },
-      { w: [5, 9], t: L('AI Trip Builder', 'KI-Reiseplaner'), d: L('Connect a language model to the trip database, guardrails, WhatsApp handover.', 'Sprachmodell an die Reisedatenbank anbinden, Leitplanken, Übergabe an WhatsApp.') },
-      { w: [7, 10], t: L('Preview and Arrival Concierge', 'Vorschau und Ankunfts-Concierge'), d: L('360° panoramas, route maps, entry-rule wizard, airport transfer add-on.', '360°-Panoramen, Routenkarten, Einreise-Assistent, Flughafentransfer.') },
-      { w: [11, 12], t: L('Pilot with German travellers', 'Pilot mit deutschen Reisenden'), d: L('A small group books real trips; we fix what confuses them, then launch.', 'Eine kleine Gruppe bucht echte Reisen; wir beheben, was verwirrt, dann Start.') }
+      { w: [1, 2], t: L('Trip database, confirmed payment option', 'Reisedatenbank, bestätigte Zahlungsoption'), d: L('Interview German travelers and company managers; collect all prices, dates and inclusions into one database; choose a payment provider.', 'Deutsche Reisende und Manager des Unternehmens befragen; alle Preise, Termine und Leistungen in einer Datenbank sammeln; einen Zahlungsanbieter wählen.') },
+      { w: [3, 4], t: L('Approved design', 'Freigegebenes Design'), d: L('Wireframes and a clickable prototype; first test with 5 users; start translations.', 'Wireframes und ein klickbarer Prototyp; erster Test mit 5 Nutzern; Übersetzungen beginnen.') },
+      { w: [5, 8], t: L('Working website in English and German', 'Funktionierende Website auf Englisch und Deutsch'), d: L('Build trip pages, guide profiles and the deposit checkout; film guide videos and prepare panoramas.', 'Reiseseiten, Guide-Profile und die Anzahlungskasse bauen; Guide-Videos drehen und Panoramen vorbereiten.') },
+      { w: [9, 10], t: L('Full MVP on a test server', 'Komplettes MVP auf einem Testserver'), d: L('Connect the AI Trip Builder to the database; add the Arrival Concierge; test payments with foreign cards.', 'Den KI-Reiseplaner mit der Datenbank verbinden; den Ankunfts-Concierge ergänzen; Zahlungen mit ausländischen Karten testen.') },
+      { w: [11, 12], t: L('Test results and a go / no-go decision', 'Testergebnisse und eine Go/No-Go-Entscheidung'), d: L('Pilot with 15–20 German-speaking users; fix problems; soft launch.', 'Pilot mit 15–20 deutschsprachigen Nutzern; Probleme beheben; Soft Launch.') }
     ],
     budget: [
-      { k: L('Design and web development', 'Design und Webentwicklung'), v: 8000000 },
-      { k: L('AI assistant and trip database', 'KI-Assistent und Reisedatenbank'), v: 3500000 },
-      { k: L('360° photography and guide videos', '360°-Fotos und Guide-Videos'), v: 3000000 },
-      { k: L('Payments, legal and GDPR', 'Zahlung, Recht und DSGVO'), v: 2000000 },
-      { k: L('Pilot testing with travellers', 'Pilottest mit Reisenden'), v: 2000000 },
-      { k: L('Reserve', 'Reserve'), v: 1500000 }
+      { k: L('Development', 'Entwicklung'), v: 11200000,
+        d: L('Two freelance web developers, 3 months (4.8M) · UX/UI designer, 2 months (1.2M) · AI Trip Builder setup and testing (0.8M) · English and German translation, native proofreading (0.9M) · 360° panoramas and photos (1.5M) · short videos for 6–8 guides (0.7M) · payment integration and legal / GDPR advice (1.0M) · user testing (0.3M)',
+             'Zwei freiberufliche Webentwickler, 3 Monate (4,8 Mio.) · UX/UI-Designer, 2 Monate (1,2 Mio.) · Aufbau und Test des KI-Reiseplaners (0,8 Mio.) · Übersetzung Englisch und Deutsch, muttersprachliches Lektorat (0,9 Mio.) · 360°-Panoramen und Fotos (1,5 Mio.) · kurze Videos für 6–8 Guides (0,7 Mio.) · Zahlungsintegration und Rechts-/DSGVO-Beratung (1,0 Mio.) · Nutzertests (0,3 Mio.)') },
+      { k: L('Launch, months 4–6', 'Start, Monate 4–6'), v: 3500000,
+        d: L('Online advertising in Germany (2.5M) · German-language content and travel blogger cooperation (1.0M)', 'Online-Werbung in Deutschland (2,5 Mio.) · deutschsprachige Inhalte und Kooperation mit Reisebloggern (1,0 Mio.)') },
+      { k: L('Running costs, year 1', 'Laufende Kosten, Jahr 1'), v: 2700000,
+        d: L('Hosting, AI usage, map and panorama tools, months 4–12 (0.9M) · part-time developer for fixes, months 4–12 (1.8M)', 'Hosting, KI-Nutzung, Karten- und Panorama-Tools, Monate 4–12 (0,9 Mio.) · Teilzeit-Entwickler für Korrekturen, Monate 4–12 (1,8 Mio.)') },
+      { k: L('Reserve (about 13%)', 'Reserve (etwa 13 %)'), v: 2600000,
+        d: L('For problems we can’t predict', 'Für Probleme, die wir nicht vorhersehen können') }
     ],
-    tech: [L('Standard web framework', 'Standard-Web-Framework'), L('Existing AI language model', 'Bestehendes KI-Sprachmodell'), L('Trip database', 'Reisedatenbank'), L('Embedded panorama viewer', 'Eingebetteter Panorama-Viewer'), L('Embedded maps', 'Eingebettete Karten'), L('International card provider (EUR)', 'Internationaler Kartenanbieter (EUR)'), L('WhatsApp Business', 'WhatsApp Business'), L('GDPR consent and deletion', 'DSGVO-Einwilligung und Löschung')]
+    pilot: [
+      { m: L('Tester finds the price and what is included', 'Testperson findet Preis und Leistungen'), t: L('80% or more, within 2 minutes', '80 % oder mehr, innerhalb von 2 Minuten') },
+      { m: L('Trust score after seeing guide profiles (scale 1–5)', 'Vertrauenswert nach den Guide-Profilen (Skala 1–5)'), t: L('Average of 4 or higher', 'Durchschnitt 4 oder höher') },
+      { m: L('100 test questions to the AI, checked by a manager', '100 Testfragen an die KI, von einem Manager geprüft'), t: L('No invented prices or dates; unknown questions passed to a human', 'Keine erfundenen Preise oder Termine; unbekannte Fragen gehen an einen Menschen') },
+      { m: L('Payments with foreign cards', 'Zahlungen mit ausländischen Karten'), t: L('Every test payment goes through', 'Jede Testzahlung geht durch') },
+      { m: L('Early bookings for summer 2027', 'Frühe Buchungen für Sommer 2027'), t: L('First deposits from real German travelers', 'Erste Anzahlungen von echten deutschen Reisenden') }
+    ],
+    tech: [L('Figma for wireframes', 'Figma für Wireframes'), L('Common web framework with a simple trip database', 'Gängiges Web-Framework mit einfacher Reisedatenbank'), L('Existing LLM via API, answering only from the trip database', 'Bestehendes Sprachmodell per API, antwortet nur aus der Reisedatenbank'), L('Open-source panorama viewer', 'Open-Source-Panorama-Viewer'), L('OpenStreetMap-based map', 'Karte auf OpenStreetMap-Basis'), L('WhatsApp Business for manager handover', 'WhatsApp Business für die Übergabe an Manager'), L('Privacy-friendly analytics', 'Datenschutzfreundliche Analyse')]
   };
 
   window.SC_DATA = { STOPS, SCENES, INC, EXTRA, MODULES, TRIPS, GUIDES, LANGS, LEVEL_PCT, PRICING, PASSPORTS, OFFICIAL, HOME_AIRPORTS, KZ_AIRPORTS, TRANSFERS, CREDITS, COMPASS, MVP, UPDATED: '2026-10-24' };

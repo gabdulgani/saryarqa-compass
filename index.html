@@ -419,15 +419,27 @@
     <div class="wrap">
       <div class="section-head">
         <h2 id="mvpTitle" data-i18n="mvp.title">How we build it in 12 weeks.</h2>
-        <p class="lede" data-i18n="mvp.lede">The MVP uses common tools only: a standard web framework, an existing AI language model connected to the trip database, and embedded panorama and map tools. That keeps the plan realistic inside the budget, and a small group of real German travellers tests it before we build more.</p>
+        <p class="lede" data-i18n="mvp.lede">Building all four features fully for every tour would take longer than 12 weeks, so the MVP is a smaller version made to answer one question: will a German traveler who has never heard of Saryarqa Routes trust the company enough to pay a deposit online?</p>
       </div>
       <div class="mvp-grid">
-        <div class="weeks" id="weeks"></div>
+        <div style="display:grid;gap:2.2rem;align-content:start">
+          <div class="weeks" id="weeks"></div>
+          <div>
+            <h3 class="mvp-h" data-i18n="mvp.pilotH">How we judge the pilot</h3>
+            <div class="pilot" id="pilot"></div>
+            <p class="small muted" style="margin-top:.8rem" data-i18n="mvp.pilotNote">We set these targets ourselves; they don’t come from industry benchmarks. If testers still don’t trust the company or can’t pay, those problems are fixed before any money is spent on advertising.</p>
+          </div>
+          <p class="small muted" data-i18n-html="mvp.team"><b style="color:var(--on-night)">Team:</b> two freelance web developers for the full 12 weeks, a designer for the first two months, a translator with a native German proofreader, and a photographer for the panoramas and guide videos. One company manager acts as product owner, because only the company knows the real prices, dates and inclusions.</p>
+        </div>
         <div style="display:grid;gap:1.6rem;align-content:start">
-          <div class="mvp-total"><span class="data">20,000,000 ₸</span><span class="muted" data-i18n="mvp.budget">total budget · indicative split</span></div>
+          <div class="mvp-total"><span class="data" data-i18n="mvp.total">20,000,000 ₸</span><span class="muted" data-i18n="mvp.budget">first-year budget · team estimates</span></div>
           <div class="budget" id="budget"></div>
-          <div class="techlist" id="tech"></div>
-          <p class="small muted" data-i18n="mvp.open">Open before launch: confirm which international payment provider accepts a Kazakhstani company and what it charges, and replace look-around photos with 360° panoramas shot by the guides.</p>
+          <p class="small muted" data-i18n="mvp.year2">From year 2, running costs are about 5,000,000 ₸ a year: 1.2M for hosting and tools, 1.8M for part-time maintenance and 2.0M for marketing.</p>
+          <div>
+            <h3 class="mvp-h" data-i18n="mvp.toolsH">Ready-made tools, no custom technology</h3>
+            <div class="techlist" id="tech"></div>
+          </div>
+          <p class="small muted" data-i18n="mvp.open">Payment is the part we are least sure about. In weeks 1–2 the company compares the international card services of Kazakhstani banks with global providers that work there, and chooses by fees and by whether foreign Visa and Mastercard payments actually go through.</p>
         </div>
       </div>
     </div>

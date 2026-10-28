@@ -1373,7 +1373,8 @@
   function renderMVP() {
     $('#weeks').innerHTML = D.MVP.weeks.map(w => `<div class="wk"><span class="data">${esc(T('weeksL', { a: w.w[0], b: w.w[1] }))}</span><div><b>${esc(tx(w.t))}</b><p>${esc(tx(w.d))}</p><div class="wkbar" aria-hidden="true"><i style="left:${((w.w[0] - 1) / 12 * 100).toFixed(2)}%;width:${((w.w[1] - w.w[0] + 1) / 12 * 100).toFixed(2)}%"></i></div></div></div>`).join('');
     const max = Math.max(...D.MVP.budget.map(b => b.v)), tot = D.MVP.budget.reduce((a, b) => a + b.v, 0);
-    $('#budget').innerHTML = D.MVP.budget.map(b => `<div class="bud" tabindex="0" data-tip="${esc(T('budgetTip', { v: num(b.v), p: Math.round(b.v / tot * 100) }))}"><b>${esc(tx(b.k))}</b><span class="data">${num(b.v)} ₸</span><span class="bud__bar"><i style="width:${(b.v / max * 100).toFixed(1)}%"></i></span></div>`).join('') + '<div class="tip" id="budTip"></div>';
+    $('#budget').innerHTML = D.MVP.budget.map(b => `<div class="bud" tabindex="0" data-tip="${esc(T('budgetTip', { v: num(b.v), p: Math.round(b.v / tot * 100) }))}"><b>${esc(tx(b.k))}</b><span class="data">${num(b.v)} ₸</span><span class="bud__bar"><i style="width:${(b.v / max * 100).toFixed(1)}%"></i></span>${b.d ? `<span class="bud__d">${esc(tx(b.d))}</span>` : ''}</div>`).join('') + '<div class="tip" id="budTip"></div>';
+    $('#pilot').innerHTML = D.MVP.pilot.map(r => `<div class="pilot__row"><span>${esc(tx(r.m))}</span><b>${esc(tx(r.t))}</b></div>`).join('');
     $('#tech').innerHTML = D.MVP.tech.map(t => `<span>${esc(tx(t))}</span>`).join('');
   }
   function initMVP() {

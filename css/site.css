@@ -642,8 +642,8 @@ dialog[open]::backdrop { animation: fadeIn 300ms ease both; }
 .mvp-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 4rem); }
 @media (max-width: 960px) { .mvp-grid { grid-template-columns: 1fr; } }
 .weeks { position: relative; display: grid; gap: 0; align-content: start; }
-.wk { display: grid; grid-template-columns: 5.4rem minmax(0, 1fr); gap: 1.2rem; padding: 1rem 0; border-top: 1px solid rgba(234, 241, 239, .14); }
-.wk .data { color: var(--sun); font-size: 1.05rem; padding-top: .1rem; }
+.wk { display: grid; grid-template-columns: 6.4rem minmax(0, 1fr); gap: 1.2rem; padding: 1rem 0; border-top: 1px solid rgba(234, 241, 239, .14); }
+.wk .data { color: var(--sun); font-size: 1.05rem; padding-top: .1rem; white-space: nowrap; }
 .wk b { display: block; font-weight: 600; color: var(--on-night); }
 .wk p { font-size: .92rem; color: var(--on-night-2); }
 .wkbar { height: 6px; border-radius: 3px; background: rgba(234, 241, 239, .1); margin-top: .55rem; position: relative; }
@@ -656,6 +656,12 @@ dialog[open]::backdrop { animation: fadeIn 300ms ease both; }
 .bud__bar i { display: block; height: 100%; border-radius: 0 4px 4px 0; background: #4cc3d9; transform-origin: 0 50%; }
 .bud:hover .bud__bar i { background: #7fd6e6; }
 .techlist { display: flex; flex-wrap: wrap; gap: .45rem; }
+.bud__d { grid-column: 1 / -1; font-size: .8rem; line-height: 1.45; color: var(--on-night-2); }
+.mvp-h { font-family: var(--f-display); font-stretch: 105%; font-size: 1.15rem; font-weight: 700; color: var(--on-night); margin-bottom: .8rem; }
+.pilot { display: grid; border-top: 1px solid rgba(234, 241, 239, .14); }
+.pilot__row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.2rem; padding: .7rem 0; border-bottom: 1px solid rgba(234, 241, 239, .14); font-size: .9rem; color: var(--on-night-2); }
+.pilot__row b { font-weight: 600; color: var(--on-night); }
+@media (max-width: 560px) { .pilot__row { grid-template-columns: 1fr; gap: .2rem; } }
 .techlist span { padding: .3rem .7rem; border-radius: 999px; border: 1px solid rgba(234, 241, 239, .22); font-size: .84rem; color: var(--on-night); }
 .mvp-total { display: flex; align-items: baseline; gap: .8rem; flex-wrap: wrap; padding-bottom: 1rem; border-bottom: 1.5px solid rgba(234, 241, 239, .3); }
 .mvp-total .data { font-size: clamp(2.4rem, 4vw, 3.4rem); line-height: 1; color: var(--on-night); }
